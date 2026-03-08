@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Facebook, Phone, MapPin, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import kilimbeLogo from "@/assets/kilimbe-logo.png";
 
@@ -68,10 +69,12 @@ const Header = () => {
                 {item.label}
               </a>
             ))}
-            <Button className="ml-4 bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold px-6 rounded-full shadow-md hover:shadow-lg transition-all">
-              <ChevronRight className="h-4 w-4 mr-1" />
-              APPLY FOR LOAN
-            </Button>
+            <Link to="/apply">
+              <Button className="ml-4 bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold px-6 rounded-full shadow-md hover:shadow-lg transition-all">
+                <ChevronRight className="h-4 w-4 mr-1" />
+                APPLY FOR LOAN
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile toggle */}
@@ -108,9 +111,11 @@ const Header = () => {
                   </motion.a>
                 ))}
                 <div className="px-6 pt-3 pb-2">
-                  <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold rounded-full">
-                    APPLY FOR LOAN
-                  </Button>
+                  <Link to="/apply" onClick={() => setMobileOpen(false)}>
+                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-semibold rounded-full">
+                      APPLY FOR LOAN
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </motion.div>
